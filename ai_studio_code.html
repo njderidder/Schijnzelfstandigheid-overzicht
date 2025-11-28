@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloProfs - Dashboard Schijnzelfstandigheid</title>
+    <!-- Importeer een mooi font (Inter) en iconen (FontAwesome) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #203b72;
+            --accent-orange: #FE9C6D;
+            --accent-orange-hover: #ffb591;
+            --text-white: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--primary-blue);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header & Logo */
+        header {
+            width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+            /* Zorgt dat het logo goed uitkomt op donkerblauw, indien het transparant is */
+            background: white; 
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        p.subtitle {
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        /* Dashboard Container */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px 60px 20px;
+        }
+
+        /* Grid Layout */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-orange);
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-orange);
+        }
+
+        /* De Knoppen (Cards) */
+        .dashboard-card {
+            background-color: var(--card-bg);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text-white);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue); /* Contrast icon */
+            transition: transform 0.3s ease;
+        }
+
+        .card-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Interactieve Effecten */
+        .dashboard-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .dashboard-card:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--text-white);
+            color: var(--accent-orange);
+        }
+
+        .arrow {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            color: var(--accent-orange);
+        }
+
+        .dashboard-card:hover .arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive aanpassingen */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .grid-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Zorg dat je logo bestand 'image.png' heet en in dezelfde map staat, of pas de src aan -->
+        <img src="image.png" alt="HelloProfs Logo" class="logo">
+        <h1>Beheer Schijnzelfstandigheidspiegel</h1>
+        <p class="subtitle">Centraal dashboard voor tools, data en AI configuratie</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sectie 1: De Hoofd Tool -->
+        <div class="section-title">De Applicatie</div>
+        <div class="grid-section">
+            <a href="https://helloprofs.nl/wanneer-ben-je-schijnzelfstandige/" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                    <span class="card-text">Open de Tool</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+        </div>
+
+        <!-- Sectie 2: Data & Logboeken -->
+        <div class="section-title">Data & Administratie</div>
+        <div class="grid-section">
+            <a href="https://docs.google.com/spreadsheets/d/1j8cUvmBWB_OlPtz92APOuNfaNnGo6WZVg-a2IzmBhlI/edit?gid=0#gid=0" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <span class="card-text">Logboek</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+
+            <a href="https://docs.google.com/spreadsheets/d/1Yt6cA-e20XVThERMV5ANJBViQ9QJ2AaUSx9vSanlR5c/edit?gid=0#gid=0" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-gavel"></i></div>
+                    <span class="card-text">Database ECLI's</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+
+            <a href="https://docs.google.com/spreadsheets/d/1siXTqeUQzE25O6AZLBEYI2WwN8tBIZdgTuxnbnv4REM/edit?gid=0#gid=0" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-file-lines"></i></div>
+                    <span class="card-text">Samenvatting Bestand</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+        </div>
+
+        <!-- Sectie 3: AI & Automatisering -->
+        <div class="section-title">AI & Backend</div>
+        <div class="grid-section">
+            <a href="https://platform.openai.com/assistants/asst_5i6dif5nknC53sTX6jsRuXp9" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                    <span class="card-text">Assistant OpenAI</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+
+            <a href="https://platform.openai.com/storage/vector_stores/vs_684fdd9d87508191bf1c4c4d333e0d7f" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <span class="card-text">Vector Store OpenAI</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+
+            <a href="https://eu2.make.com/798968/scenarios/8089828/edit" target="_blank" class="dashboard-card">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                    <span class="card-text">Make Automatisering</span>
+                </div>
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 HelloProfs - Intern Gebruik
+    </footer>
+
+</body>
+</html>
